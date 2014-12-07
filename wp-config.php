@@ -85,6 +85,7 @@ define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content/');
 define('WP_CONTENT_URL', $server_name . '/wp-content');
 define('WP_SITEURL', $server_name. '/wp');
 define('WP_HOME', $server_name);
+define( 'WP_DEFAULT_THEME', 'theme' );
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
