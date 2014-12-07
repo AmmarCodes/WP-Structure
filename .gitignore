@@ -1,5 +1,6 @@
 *.log
 .htaccess
+composer.lock
 sitemap.xml
 sitemap.xml.gz
 wp/
