@@ -13,3 +13,4 @@ wp-content/upgrade/
 wp-content/plugins/
 wp-content/uploads/
 wp-content/wp-cache-config.php
+wp-content/vendor/
