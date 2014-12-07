@@ -1,0 +1,50 @@
+{
+    "name": "WP-Structure",
+    "description": "WordPress applications boilerplate, composerized with OOP theme.",
+    "type" : "project",
+    "keywords": ["wordpress", "structure"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ammar Alakkad",
+            "email": "am.alakkad@gmail.com",
+            "homepage": "http://aalakkad.me",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "wp-content/themes/theme/src/"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url" : "http://wpackagist.org"
+        }
+    ],
+    "config": {
+        "vendor-dir": "wp-content/vendor"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp"
+    },
+    "require": {
+        "php": ">=5.4",
+        "johnpbloch/wordpress": "*",
+        "wpackagist-plugin/wordpress-seo": "*",
+        "wpackagist-plugin/akismet": "*",
+        "wpackagist-plugin/google-sitemap-generator": "*",
+        "wpackagist-plugin/w3-total-cache": "*",
+        "wpackagist-plugin/wp-smushit": "*"
+    },
+    "require-dev": {
+        "phpmd/phpmd": "~2.1",
+        "codeception/codeception": "~2.0",
+        "wpackagist-plugin/debug-bar": "*",
+        "wpackagist-plugin/debug-bar-console": "*",
+        "wpackagist-plugin/disable-wordpress-updates": "*",
+        "wpackagist-plugin/p3-profiler": "*",
+        "wpackagist-plugin/query-monitor": "*"
+    }
+}
