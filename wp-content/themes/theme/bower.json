@@ -1,0 +1,29 @@
+{
+  "name": "theme",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AAlakkad/WP-Structure",
+  "authors": [
+    "Ammar Alakkad <am.alakkad@gmail.com>"
+  ],
+  "description": "basic theme, meant to be empty.",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "gulp",
+    "bower"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-colors": "~0.3.1",
+    "foundation": "~5.4.7",
+    "fontawesome": "~4.2.0"
+  }
+}
