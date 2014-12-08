@@ -1,29 +1,66 @@
 'use strict';
 
 var gulp = require('gulp');
+var del = require('del');
 var $ = require('gulp-load-plugins')();
+
+var manifest = {
+    path: 'manifest.json'
+};
 
 gulp.task('styles', function () {
   return gulp.src('dev/styles/main.scss')
     .pipe($.plumber())
     .pipe($.sass({errLogToConsole: true}))
-    .pipe($.autoprefixer({browsers: ['last 3 version']}))
-    .pipe(gulp.dest('assets/styles'));
+    .pipe($.autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
+    .pipe(gulp.dest('dev/dist/css'));
 });
 
-gulp.task('jshint', function () {
+gulp.task('scripts', function () {
   return gulp.src('dev/scripts/**/*.js')
     .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.jshint.reporter('fail'));
+    // .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.jshint.reporter('fail'))
+    .pipe($.concat('main.js', {
+        newLine: ';'
+    }))
+    .pipe($.uglify())
+    .pipe(gulp.dest('dev/dist/js'));
 });
 
-gulp.task('uglify', function(){
-    return gulp.src('dev/js/**/*.js')
-    .pipe($.uglify())
-    .pipe(gulp.dest('assets/js/'));
+gulp.task('scss-lint', function() {
+    return gulp.src("dev/style/**/*.scss")
+        .pipe($.scssLint());
+});
+
+gulp.task('clean', function(cb) {
+    del([
+        "assets/css/main*.css",
+        "assets/js/main*.js"
+    ], cb);
+});
+
+gulp.task('version', function () {
+    return gulp.src([
+                    "dev/dist/css/main.css",
+                    "dev/dist/js/main.js"
+                    ], {base: "dev/dist"})
+        .pipe($.rev())
+        .pipe(gulp.dest("assets"))
+        .pipe($.rev.manifest(manifest))
+        .pipe(gulp.dest("assets"));
+});
+
+gulp.task('notify', function(){
+    return gulp.src("./")
+            .pipe($.notify("Build complete!"));
 });
 
 gulp.task('watch', function () {
   gulp.watch('dev/styles/**/*.scss', ['styles']);
+});
+
+gulp.task('build', ['styles', 'scripts'], function(){
+    gulp.start('version');
+    gulp.start('notify');
 });

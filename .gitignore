@@ -16,3 +16,4 @@ wp-content/wp-cache-config.php
 wp-content/vendor/
 wp-content/themes/theme/node_modules/
 wp-content/themes/theme/dev/bower_components/
+wp-content/themes/theme/dev/dist/
