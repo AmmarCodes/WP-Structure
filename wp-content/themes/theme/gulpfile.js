@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var del = require('del');
+var run = require('run-sequence');
 var $ = require('gulp-load-plugins')();
 
 var manifest = {
@@ -40,11 +41,19 @@ gulp.task('clean', function(cb) {
     ], cb);
 });
 
+gulp.task('clean-original', function(cb) {
+    del([
+        "assets/css/main.css",
+        "assets/js/main.js"
+    ], cb);
+});
+
 gulp.task('version', function () {
     return gulp.src([
                     "dev/dist/css/main.css",
                     "dev/dist/js/main.js"
                     ], {base: "dev/dist"})
+        .pipe(gulp.dest("assets"))
         .pipe($.rev())
         .pipe(gulp.dest("assets"))
         .pipe($.rev.manifest(manifest))
@@ -57,10 +66,13 @@ gulp.task('notify', function(){
 });
 
 gulp.task('watch', function () {
-  gulp.watch('dev/styles/**/*.scss', ['styles']);
+  gulp.watch('dev/styles/**/*.scss', ['styles', 'version']);
 });
 
-gulp.task('build', ['styles', 'scripts'], function(){
-    gulp.start('version');
-    gulp.start('notify');
+gulp.task('build', ['clean'], function(callback) {
+    run(['styles', 'scripts'],
+        'version',
+        'clean-original',
+        'notify',
+        callback);
 });
