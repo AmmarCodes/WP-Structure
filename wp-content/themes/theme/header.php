@@ -12,7 +12,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">
+    <!--<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css">-->
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
