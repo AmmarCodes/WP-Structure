@@ -1,6 +1,8 @@
-@import "../bower_components/material-colors/dist/colors.scss";
+@import "variables";
+
 @import "foundation_loader";
 
+// Style partials:
 @import "base";
 @import "theme";
 @import "modules";
