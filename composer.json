@@ -15,7 +15,10 @@
     "autoload": {
         "psr-4": {
             "Theme\\": "wp-content/themes/theme/src/"
-        }
+        },
+        "files": [
+            "wp-content/themes/theme/src/helpers.php"
+        ]
     },
     "repositories": [
         {
