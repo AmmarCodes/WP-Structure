@@ -13,9 +13,9 @@
         }
     ],
     "autoload": {
-        "classmap": [
-            "wp-content/themes/theme/src/"
-        ]
+        "psr-4": {
+            "Theme\\": "wp-content/themes/theme/src/"
+        }
     },
     "repositories": [
         {
