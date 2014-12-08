@@ -1,0 +1,17 @@
+@media #{$large-up} {
+    header.container {
+      height: 40%;
+  }
+
+  .main-content {
+      position: relative;
+      top: -25%;
+      z-index: 1;
+  }
+}
+
+@media #{$medium-up} {
+   .top-bar {
+    overflow: hidden;
+  }
+}
