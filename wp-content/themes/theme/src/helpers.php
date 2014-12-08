@@ -24,7 +24,7 @@ function dd($param)
  */
 function asset($filename) {
     $assets = trailingslashit(get_template_directory_uri()) . 'assets/';
-    $manifest_path = $assets . 'manifest.json';
+    $manifest_path = trailingslashit(get_template_directory()) . 'assets/manifest.json';
 
     if (file_exists($manifest_path)) {
         $manifest = json_decode(file_get_contents($manifest_path), true);
