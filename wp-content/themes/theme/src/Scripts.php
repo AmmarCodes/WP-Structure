@@ -20,7 +20,7 @@ class Scripts
      */
     public function register()
     {
-        return null;
+        wp_register_style( 'theme', asset('css/main.css'), [], null );
     }
 
     /**
@@ -30,7 +30,7 @@ class Scripts
      */
     public function enqueue()
     {
-        return null;
+        wp_enqueue_style( 'theme' );
     }
 
     /**
@@ -42,6 +42,6 @@ class Scripts
     {
         return null;
     }
-    
+
 }
 
